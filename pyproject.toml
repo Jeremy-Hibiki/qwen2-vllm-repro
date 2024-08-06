@@ -2,7 +2,15 @@
 name = "qwen2-vllm-repro"
 version = "0.1.0"
 description = "Add your description here"
-dependencies = []
+dependencies = [
+  "typer>=0.12.3",
+  "torch==2.4.0",
+  "vllm==0.5.4",
+  "transformers",
+  "optimum",
+  "auto-gptq",
+  "exllamav2",
+]
 readme = "README.md"
 requires-python = ">= 3.10"
 
@@ -10,9 +18,6 @@ requires-python = ">= 3.10"
 managed = true
 virtual = true
 dev-dependencies = ["ruff>=0.5.6", "mypy>=1.11.1", "setuptools>=72.1.0"]
-
-[tool.rye.workspace]
-members = ["demos/*"]
 
 [tool.ruff]
 extend-include = ["*.ipynb"]

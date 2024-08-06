@@ -11,7 +11,7 @@ $ sha256sum /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4/*.safetensors
 #### vLLM + GPTQ 4bit + FP8 Cache
 
 ```bash
-root@R750xa /d/G/c/q/d/vllm-offline (master) typer app.py run chat --fp8-cache --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4 "Tell me something about Hu
+$ typer vllm-offline-demo.py run chat --fp8-cache --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4 "Tell me something about Hu
 ggingFace."
 ```
 
@@ -20,7 +20,7 @@ ggingFace."
 #### vLLM + GPTQ 4bit + FP16 Cache
 
 ```bash
-root@R750xa /d/G/c/q/d/vllm-offline (master) typer app.py run chat --no-fp8-cache --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4 "Tell me something about
+$ typer vllm-offline-demo.py run chat --no-fp8-cache --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4 "Tell me something about
  HuggingFace."
 ```
 
@@ -47,7 +47,7 @@ root@R750xa /d/G/c/q/d/vllm-offline (master) typer app.py run chat --no-fp8-cach
 #### HF Transformers + GPTQ 4bit
 
 ```bash
-root@R750xa /d/G/c/q/d/transformers (master) typer app.py run --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4 "Tell me something about HuggingFace."
+$ typer transformers-demo.py run --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4 "Tell me something about HuggingFace."
 ```
 
 > Hugging Face is a company and an open-source platform that provides tools, models, and resources for the development of natural language processing (NLP) applications. It was founded in 2018 by a group of researchers who wanted to make it easier for developers and researchers to share and use pre-trained machine learning models for NLP tasks.
@@ -65,7 +65,7 @@ Sample text is from https://patents.google.com/patent/kr102166913b1/en
 #### w/o fp8 cache:
 
 ```bash
-root@R750xa /d/G/c/q/d/transformers (master) typer app.py run summary --no-fp8-cache --lang zh --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
+$ typer vllm-offline-demo.py run summary --no-fp8-cache --lang zh --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
 ```
 
 > 这段文本描述了一种自偏置缓冲器电路及其在存储器设备中的应用。自偏置缓冲器电路包括缓冲单元和偏置调整单元。缓冲单元基于参考电压提供自偏置电压，根据该自偏置电压驱动，并比较输入信号与参考电压以生成输出信号。偏置调整单元根据参考电压提升自偏置电压。
@@ -83,7 +83,7 @@ root@R750xa /d/G/c/q/d/transformers (master) typer app.py run summary --no-fp8-c
 > 此外，自偏置缓冲器电路可以应用于各种数字系统，其中使用存储器设备以提高系统的运行速度。
 
 ```bash
-root@R750xa /d/G/c/q/d/transformers (master) typer app.py run summary --no-fp8-cache --lang en --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
+$ typer vllm-offline-demo.py run summary --no-fp8-cache --lang en --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
 ```
 
 > The text describes a self-bias buffer circuit and a memory device including the same, which are designed to improve the operation speed and reliability of semiconductor devices.
@@ -99,13 +99,13 @@ root@R750xa /d/G/c/q/d/transformers (master) typer app.py run summary --no-fp8-c
 #### w/ fp8 cache:
 
 ```bash
-root@R750xa /d/G/c/q/d/transformers (master) typer app.py run summary --fp8-cache --lang zh --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
+$ typer vllm-offline-demo.py run summary --fp8-cache --lang zh --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
 ```
 
 > 这段描述描述描述一种自偏偏置缓冲器缓冲器电路电路，并 to improve 一种自偏偏的置缓冲的的电路。该。，该一种自偏偏偏的的当缓冲的的。.。该一种自偏偏偏偏偏的的缓冲缓冲的的。....一种自偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏偏
 
 ```bash
-root@R750xa /d/G/c/q/d/transformers (master) typer app.py run summary --fp8-cache --lang en --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
+$ typer vllm-offline-demo.py run summary --fp8-cache --lang en --model-name /data/GPT/models/Qwen2-7B-Instruct-GPTQ-Int4
 ```
 
 > The text disc describes describes to provide a self self to the the the the the to the the to the the to the the to the the to the the to the the to the to the to the to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be to be
