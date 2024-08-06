@@ -1,0 +1,303 @@
+Self-bias buffer circuit, and a memory device including the same
+The present invention relates to a semiconductor device, and more particularly, to a self-bias buffer circuit and a memory device including the same.
+
+Buffers temporarily store data and are used to compensate for differences in time or speed that occur when data is transmitted from one device to another.
+
+The buffer receives an external signal, detects the voltage difference between the reference voltage and the external signal, amplifies it to the CMOS level, and outputs it. In this case, a bias voltage for driving the buffer is required, but it is not easy to provide a bias voltage suitable for operating characteristics of the buffer.
+
+An object of the present invention for solving the above problems is to provide a self-bias buffer circuit capable of increasing an operation speed and operation reliability by using a self-bias voltage suitable for operation characteristics.
+
+In order to achieve the above object of the present invention, a self-bias buffer circuit according to an embodiment of the present invention includes a buffer unit and a bias adjustment unit. The buffer unit provides a self-bias voltage based on a reference voltage, is driven based on the self-bias voltage, and compares an input signal with the reference voltage to generate an output signal. The bias adjuster boosts the self-bias voltage based on the reference voltage.
+
+In an exemplary embodiment, the bias adjustment unit may include a boost transistor that is turned on in response to the reference voltage to boost the self-bias voltage.
+
+In an exemplary embodiment, the boosting transistor may be implemented as a boosted NMOS transistor coupled between a node of a power supply voltage and a node of the self-bias voltage and applied with the reference voltage to a gate.
+
+In an exemplary embodiment, the bias adjuster is coupled between the node of the power supply voltage and the step-up NMOS transistor, and a boost enable to stop the operation of the bias adjuster in response to an inversion signal of the power supply enable signal. It may further include a PMOS (PMOS) transistor.
+
+In an exemplary embodiment, when the reference voltage is greater than or equal to a boost start voltage, the boost NMOS transistor is turned on as the reference voltage increases, thereby gradually boosting the self-bias voltage.
+
+In an exemplary embodiment, the bias control unit is configured to symmetrically form the self-bias voltage when the reference voltage is greater than or equal to the boost start voltage and when the reference voltage is less than or equal to the boost start voltage based on the boost start voltage. The self-bias voltage can be boosted.
+
+In an exemplary embodiment, the bias adjusting unit is an input NMOS (NMOS) that is coupled between a node of a power supply voltage and a node of the self-bias voltage, and is turned on in response to the input signal to boost the self-bias voltage. It may further include a transistor.
+
+In an exemplary embodiment, the bias control unit is coupled between the node of the power supply voltage and the input NMOS transistor, and in response to an inversion signal of the power supply enable signal, the bias control unit is enabled to stop the operation. It may further include a PMOS (PMOS) transistor.
+
+In an exemplary embodiment, the buffer unit includes a differential unit for generating the self-bias voltage and the output signal based on the reference signal and the input signal, and a bias unit for driving the differential unit based on the self-bias voltage. can do.
+
+In an exemplary embodiment, the differential unit may include a reference unit and an input/output unit, and the self-bias voltage may be provided through a bias voltage node of the reference unit.
+
+In an exemplary embodiment, the reference unit includes a reference CMOS transistor connected between a first node and a second node, and the reference voltage is applied to gates of the reference CMOS transistor. The self-bias voltage is output through the bias voltage node that is an output node of the reference unit, and the input/output unit includes an input/output CMOS transistor connected between the first node and the second node, and the input/output seed The input signal may be applied to gates of a CMOS transistor to provide the output signal through an output node of the input/output unit.
+
+In an exemplary embodiment, the bias unit may include a power supply unit and a ground unit.
+
+In an exemplary embodiment, the power supply unit is connected between the power supply voltage and a power enable node, and in response to an inversion signal of the power supply enable signal, the power supply enable PMOS transistor to stop supplying the power supply; and A power supply PMOS transistor connected between the power enable node and the second node and driven by the self-bias voltage may be included.
+
+In an exemplary embodiment, the ground portion is connected between the ground voltage and the ground enable node, and in response to an inversion signal of the ground portion enable signal, the ground portion enable N blocks a conduction path connected to the ground voltage. A MOS transistor and a ground NMOS transistor connected between the ground enable node and the first node and driven by the self-bias voltage may be included.
+
+In order to achieve the object of the present invention, a memory device according to an embodiment of the present invention includes a memory core, a self-bias buffer circuit, and a control unit. The memory core stores data or outputs the stored data in response to a control signal. The self-bias buffer circuit receives the data of the memory core or transmits external data to the memory core in response to the control signal. The controller generates the control signal to control the memory core and the self-bias buffer. The self-bias buffer circuit includes a buffer unit and a bias adjustment unit. The buffer unit provides a self-bias voltage based on a reference voltage, is driven based on the self-bias voltage, and compares an input signal with the reference voltage to generate an output signal. The bias adjuster boosts the self-bias voltage based on the reference voltage.
+
+1 is a block diagram illustrating a self-bias buffer circuit according to embodiments of the present invention.
+2 is a circuit diagram showing an example of a self-bias buffer circuit.
+3 is a graph showing a change in a self-bias voltage according to a reference voltage in a self-bias buffer circuit.
+4 is a graph showing a measurement result of a self-bias buffer circuit according to a reference voltage.
+5 is a circuit diagram illustrating an example of a bias adjusting unit included in the self-bias buffer circuit of FIG. 1.
+6 is a circuit diagram illustrating another example of a bias adjusting unit included in the self-bias buffer circuit of FIG. 1.
+7 is a block diagram illustrating a buffer unit included in the self-bias buffer circuit of FIG. 1.
+8 is a circuit diagram illustrating an example of a power supply unit included in the buffer unit of FIG. 7.
+9 is a circuit diagram illustrating an example of a ground part included in the buffer part of FIG. 7.
+10 is a circuit diagram showing an embodiment of the self-bias buffer circuit of FIG. 1.
+11 is a graph illustrating a change in a self-bias voltage according to a reference voltage in the self-bias buffer circuit of FIG. 1.
+12 is a graph showing measurement results of the self-bias buffer circuit of FIG. 1 according to a reference voltage.
+13 is a block diagram illustrating a memory device according to example embodiments.
+14 is a block diagram illustrating an information processing system including a memory device according to example embodiments.
+
+With respect to the embodiments of the present invention disclosed in the text, specific structural or functional descriptions have been exemplified only for the purpose of describing the embodiments of the present invention, and the embodiments of the present invention may be implemented in various forms. It is not to be construed as being limited to the embodiments described in.
+
+Since the present invention can apply various changes and have various forms, specific embodiments will be illustrated in the drawings and described in detail in the text. However, this is not intended to limit the present invention to a specific form of disclosure, it is to be understood as including all changes, equivalents, or substitutes included in the spirit and scope of the present invention.
+
+Terms such as first and second may be used to describe various components, but the components should not be limited by the terms. The terms may be used for the purpose of distinguishing one component from another component. For example, without departing from the scope of the present invention, a first element may be referred to as a second element, and similarly, a second element may be referred to as a first element.
+
+When a component is referred to as being "connected" or "connected" to another component, it is understood that it may be directly connected or connected to the other component, but other components may exist in the middle. Should be. On the other hand, when a component is referred to as being "directly connected" or "directly connected" to another component, it should be understood that there is no other component in the middle. Other expressions describing the relationship between components, such as "between" and "just between" or "adjacent to" and "directly adjacent to" should be interpreted as well.
+
+The terms used in the present application are only used to describe specific embodiments, and are not intended to limit the present invention. Singular expressions include plural expressions unless the context clearly indicates otherwise. In the present application, terms such as "comprise" or "have" are intended to designate the presence of a set feature, number, step, action, component, part, or combination thereof, and one or more other features or numbers It is to be understood that the possibility of addition or presence of, steps, actions, components, parts, or combinations thereof is not preliminarily excluded.
+
+Unless otherwise defined, all terms used herein, including technical or scientific terms, have the same meaning as commonly understood by one of ordinary skill in the art to which the present invention belongs. Terms as defined in a commonly used dictionary should be interpreted as having a meaning consistent with the meaning of the context of the related technology, and should not be interpreted as an ideal or excessively formal meaning unless explicitly defined in this application. .
+
+Hereinafter, preferred embodiments of the present invention will be described in more detail with reference to the accompanying drawings. The same reference numerals are used for the same elements in the drawings, and duplicate descriptions for the same elements are omitted.
+
+1 is a block diagram illustrating a self-bias buffer circuit according to embodiments of the present invention.
+
+Referring to FIG. 1, the self-bias buffer circuit 10 includes a buffer unit 100 and a bias adjustment unit 300.
+
+The buffer unit 100 provides a self-bias voltage VSB based on the reference voltage VREF, is driven based on the self-bias voltage VSB, and compares the input signal IN and the reference voltage VREF to output It generates a signal OUT.
+
+The bias adjustment unit 300 boosts the self-bias voltage VSB based on the reference voltage VREF.
+
+For example, the buffer unit 100 receives the input signal IN and the reference voltage VREF from the outside, detects the voltage difference between the input signal IN and the reference voltage VREF, amplifies it to a CMOS level, and amplifies the output signal ( OUT) can occur.
+
+FIG. 2 is a circuit diagram showing an example of a self-bias buffer circuit, and FIG. 3 is a graph showing a change in a self-bias voltage according to a reference voltage VREF in the self-bias buffer circuit.
+
+2 and 3, when the reference voltage VREF is input to the self-bias buffer circuit 20, the reference voltage VREF is transferred to the differential units 110 and 130 inside the self-bias buffer circuit 20. . The differential units 110 and 130 are divided into a reference unit 110 and an input/output unit 130, and the reference voltage VREF is provided to the reference unit 110 of the differential units 110 and 130.
+
+For example, the reference unit 110 may be implemented as a reference unit CMOS transistor 110. The reference voltage VREF input to the reference unit 110 may be applied to the gates of the reference CMOS transistor 110. The output of the reference unit 110 may be transmitted to the bias units 150 and 170 through the self-bias node NSB of the reference unit CMOS transistor 110. The output of the reference unit 110 corresponds to the self-bias voltage VSB.
+
+When logic high is applied to the gates of the reference CMOS transistor 110, the PMOS transistor of the reference CMOS transistor 110 is turned off and the reference CMOS transistor 110 is turned off. The NMOS transistor of the CMOS) transistor 110 is turned on so that the self-bias node NSB of the reference CMOS transistor 110 maintains a logic level low ("L"). On the other hand, when a logic low is applied to the gates of the reference CMOS transistor 110, the PMOS transistor of the reference CMOS transistor 110 is turned on and The NMOS transistor of the CMOS transistor 110 is turned off, and the self-bias node NSB of the reference CMOS transistor 110 maintains a logic high. In this way, the output signal OUT of the reference unit 110 becomes an inverted signal of the input signal IN of the reference unit 110.
+
+As the reference voltage VREF input to the reference unit 110 increases, the NMOS transistor of the reference CMOS transistor 110 is gradually turned on, and the reference CMOS transistor (CMOS) transistor ( 110) of the PMOS transistor is gradually turned off. That is, as the reference voltage VREF input to the reference unit 110 increases, the turn-on resistance of the NMOS transistor of the reference CMOS transistor 110 gradually decreases and the reference CMOS transistor 110 gradually decreases. The turn-on resistance of the PMOS transistor of the (CMOS) transistor 110 is gradually increased. As a result, as shown in FIG. 3, as the reference voltage VREF input to the reference unit 110 increases, the self-bias voltage node of the reference CMOS transistor 110, which is an output of the reference unit 110 The self-bias voltage VSB outputted to NSB) decreases.
+
+4 is a graph showing a measurement result of a self-bias buffer circuit according to a reference voltage.
+
+Referring to FIGS. 2 and 4, in the measurement method for the self-bias buffer circuit 20, first, a reference voltage VREF is determined and data is moved along a time axis to verify the output of the self-bias buffer circuit 20.
+
+When the self-bias buffer circuit 20 operates normally, 1 is displayed on the graph as shown in FIG. 4, and when the self-bias buffer circuit 20 does not operate normally, no display is displayed on the graph.
+
+Next, if the above process is repeatedly performed while changing the reference voltage VREF, the same result as the graph of FIG. 4 can be obtained.
+
+An example of a system in which the self-bias buffer circuit 20 is used is a memory device. When the self-bias buffer circuit 20 is used in the memory device, the memory device performs a training mode and a normal mode.
+
+In the training mode, the reference voltage VREF applied to the self-bias buffer circuit 10 is selected. In the normal mode, an output signal OUT is provided using the reference voltage VREF and the input signal IN selected in the training mode.
+
+The process of selecting the reference voltage VREF in the training mode is as follows. First, as shown in the graph of FIG. 4, the memory controller determines a range of voltages that can be used as the reference voltage VREF. Next, the median value from the range of voltages that can be used as the reference voltage VREF is selected as the reference voltage VREF.
+
+For example, in the graph of FIG. 4, the range of the voltage usable as the reference voltage VREF ranges from 0.5V to 1.8V. In the voltage range of 0.5V to 1.8V, the reference voltage is indicated by 1 on the graph, so that the self-bias buffer circuit 20 operates normally. Therefore, it is possible for the memory controller to hold the reference voltage VREF in the voltage range from 0.5V to 1.8V. In this case, the memory controller can select 1.15V, which is the median value of 0.5V and 1.8V, as the reference voltage VREF.
+
+When the memory controller selects the reference voltage VREF in the training mode, it is advantageous to keep the data fetch window wide. When the data fetch window is widened, margins of set-up time and hold time are increased when data is latched, and as a result, the operation speed of the memory device can be increased.
+
+For example, in the graph of FIG. 4, the self-bias buffer circuit 20 operates normally when the reference voltage VREF is in the range of 0.5V to 1.8V. When the reference voltage VREF is about 0.8V, the reference voltage VREF When) is 1V or more, data can be sampled with less setup time, and hold time can also be sampled with a relatively small hold time compared to 1V.
+
+In this case, the interval of time indicated by 1 along the time axis for each reference voltage VREF can be expressed as a data fetch window, and the data fetch window when the reference voltage VREF is about 0.8V is the reference voltage VREF. It appears wider than the data fetch window in case of 1V or more. The wider the data fetch window, the higher the margin of the set-up time and hold time when the data is latched, thereby increasing the operating speed of the memory device.
+
+As a result, when the reference voltage VREF is about 0.8V, the data fetch window becomes the widest section, and when the reference voltage VREF is about 0.8V, the operation speed of the memory device is fastest. However, the memory controller selects 1.15V, which is the median value of 0.5V and 1.8V, as the reference voltage VREF, which may be a factor that slows the operation speed of the memory device.
+
+Referring to FIGS. 2, 3, and 4, first, when a reference voltage VREF of VDD/2-X is applied as an input of the reference unit 110, as the value of X increases, as described in FIG. The reference voltage VREF decreases and the self-bias voltage VSB increases. The self-bias voltage VSB is used as a voltage for driving the power supply unit 150 and the ground unit 170. As the self-bias voltage VSB increases, the ground unit 170 maintains operation, but the power supply unit 150 is Stop the operation.
+
+When the ground unit 170 maintains the operation, the ground voltage VSS can be transmitted to the input/output unit 130 through the ground unit 170, and when the ground unit 170 stops operating, the ground unit ( The conduction path from 170 to the input/output unit 130 is blocked, so that the ground voltage VSS cannot be transmitted to the input/output unit 130.
+
+When the power supply unit 150 maintains the operation, the power supply voltage VDD can be supplied to the input/output unit 130 through the power supply unit 150, and when the power unit 150 stops operating, the power supply unit 150 performs input/output. The conduction path connected to the unit 130 is blocked, so that the power voltage VDD cannot be supplied to the input/output unit 130.
+
+In the ground part 170, a ground part NMOS transistor 171 may be connected between the ground voltage VSS and the first node N1. When the self-bias voltage VSB applied to the gate of the ground NMOS transistor 171 is greater than or equal to the threshold voltage of the ground NMOS transistor 171, the ground 170 operates normally. Accordingly, as the value of X increases, the self-bias voltage VSB also increases, and the self-bias voltage VSB becomes a voltage equal to or higher than the threshold voltage sufficient to operate the ground unit 170.
+
+In the power supply unit 150, a power supply PMOS transistor 153 may be connected between the power supply voltage VDD and the second node N2. When the self-bias voltage VSB applied to the gate of the power supply PMOS transistor 153 is less than or equal to the threshold voltage of the power supply PMOS transistor 153, the power supply 150 operates normally. Therefore, as the value of X increases, the self-bias voltage (VSB) also increases, and when the self-bias voltage (VSB) increases, the self-bias voltage (VSB) is a voltage greater than or equal to the threshold voltage of the PMOS transistor 153 The point of time occurs. When the self-bias voltage VSB becomes higher than or equal to the threshold voltage of the PMOS transistor 153 of the power supply unit, the power supply unit 150 stops operating.
+
+Even when the self-bias voltage VSB becomes higher than the threshold voltage of the PMOS transistor 153 of the power supply unit, the ground unit 170 maintains its operation, but the power supply unit 150 stops the operation. When either the power supply unit 150 or the ground unit 170 stops operating, the self-bias buffer circuit 20 does not generate an output.
+
+As shown in FIG. 4, as the reference voltage VREF decreases based on VDD/2 of the vertical axis of the graph, the data fetch window becomes narrower. When the reference voltage VREF is about 0.5V, the power supply unit 150 stops operating and the self-bias buffer circuit 20 does not generate an output. Therefore, in the section where the reference voltage VREF is less than about 0.5V, the portion indicated by 1 in the graph of FIG. 4 does not appear.
+
+Next, when the reference voltage VREF of VDD/2+X is applied to the input of the reference unit 110, as the value of X increases, the reference voltage VREF increases and the self-bias voltage increases as described in FIG. (VSB) decreases. However, when the reference voltage VREF is greater than or equal to a certain voltage, the self-bias voltage VSB does not decrease any more and maintains a constant value.
+
+As shown in FIG. 3, when the reference voltage VREF is greater than or equal to 1.1V, the self-bias voltage VSB is maintained at about 0.3V even if the reference voltage VREF increases. The self-bias voltage VSB is used as a voltage that drives the power supply unit 150 and the ground unit 170. Even if the self-bias voltage VSB decreases to about 0.3V, the operation of the ground unit 170 and the power unit 150 Can be maintained.
+
+When the self-bias voltage VSB applied to the gate of the ground NMOS transistor 171 is greater than or equal to the threshold voltage of the ground NMOS transistor 171, the ground 170 operates normally. As the value of X increases, the reference voltage VREF increases and the self-bias voltage VSB decreases, and the self-bias voltage VSB is sufficiently lower than the threshold voltage of the NMOS transistor 171 at the ground. It does not go down to voltage. Therefore, even if the value of X increases, the ground NMOS transistor 171 is not completely turned off.
+
+When the self-bias voltage VSB applied to the gate of the power supply PMOS transistor 153 is less than or equal to the threshold voltage of the power supply PMOS transistor 153, the power supply 150 operates normally. As the value of X increases, the self-bias voltage VSB decreases, and when the self-bias voltage VSB decreases, the self-bias voltage VSB becomes a voltage equal to or less than the threshold voltage sufficient to operate the power supply unit 150. .
+
+Since the self-bias voltage VSB does not fall below a certain voltage, the ground unit 170 and the power supply unit 150 maintain operation. As shown in FIG. 4, as the reference voltage VREF increases with respect to VDD/2 of the vertical axis of the graph, the data fetch window does not narrow and maintains a constant width. This indicates that the ground unit 170 and the power supply unit 150 are driven by the self-bias voltage VSB. Therefore, in a section in which the reference voltage VREF is VDD/2 or higher, 1 is displayed in the graph as in FIG. 4.
+
+When the memory device performs the training mode, the memory controller of the memory device fails to select VDD/2 in FIG. 4 as the reference voltage VREF, and the self-bias buffer circuit 20 operates asymmetrically with respect to VDD/2. Because it does.
+
+When the reference voltage VREF is less than VDD/2, the power supply unit 150 stops operating and the ground unit 170 maintains the operation. When the reference voltage VREF is greater than or equal to VDD/2, the operation of the power supply unit 150 and the ground unit 170 is not stopped, and the output of the self-bias buffer circuit 20 is continuously generated. Since the reference voltage VREF does not operate symmetrically with respect to VDD/2, the memory controller cannot select a section with the widest data fetch window. As a result, it may be a factor that decreases the speed of the memory device.
+
+The self-bias buffer circuit 10 according to the embodiments of the present invention is implemented to operate symmetrically based on the case where the reference voltage VREF is VDD/2 by using the bias adjusting unit 300. When the self-bias buffer circuit 10 is implemented so that the reference voltage VREF operates symmetrically with respect to VDD/2, the memory controller of the memory device selects VDD/2 as the reference voltage VREF. When the memory controller selects VDD/2 as the reference voltage (VREF), the width of the data fetch window is widest. When the width of the data fetch window is wide, the margin of setup time and hold time is increased when data is latched, thereby increasing the operating speed of the memory device.
+
+5 is a circuit diagram illustrating an example of a bias adjustment unit included in the self-bias buffer circuit of FIG. 1.
+
+Referring to FIG. 5, the bias adjustment unit 300 may include boost transistors 310 and 330 that are turned on in response to the reference voltage VREF to boost the self-bias voltage VSB.
+
+As the reference voltage VREF increases, the self-bias voltage VSB decreases. In this case, the operation of the self-bias buffer circuit 20 does not maintain symmetry based on the reference voltage VDD/2. Accordingly, a circuit can be added so that the self-bias circuit operates symmetrically with respect to the reference voltage VREF of VDD/2.
+
+In order for the self-bias buffer circuit 10 to operate symmetrically, various methods may be used. In order for the self-bias buffer circuit 10 according to the present invention to operate symmetrically, a method of adjusting the self-bias voltage VSB may be used. As one method of adjusting the self-bias voltage VSB, the self-bias voltage VSB can be adjusted by transferring the power supply voltage VDD to the node NSB of the self-bias voltage through a transistor.
+
+In an exemplary embodiment, the boosting transistors 310 and 330 are coupled between the node of the power supply voltage VDD and the node NSB of the self-bias voltage, and are applied with the reference voltage VREF to the gate. ) It may be implemented as a transistor 310.
+
+The boost transistors 310 and 330 may be implemented as NMOS transistors. The boost NMOS transistor 310 is connected between the power supply voltage VDD and the node NSB of the self-bias voltage, and the power supply voltage VDD when the boost NMOS transistor 310 is turned on. The self-bias voltage VSB may be boosted by transferring the signal to the self-bias voltage node NSB.
+
+The boosted NMOS transistor 310 may be driven by the reference voltage VREF applied to the gate. When the reference voltage VREF increases and becomes higher than the threshold voltage of the boosted NMOS transistor 310, the boosted NMOS transistor 310 is gradually turned on to boost the self-bias voltage VSB. can do.
+
+As the reference voltage VREF increases, the self-bias voltage VSB decreases. When the self-bias buffer circuit 10 adjusts the self-bias voltage VSB to operate symmetrically, the reference voltage VREF is equal to or higher than a predetermined voltage VDD/2 (hereinafter, referred to as a boost start voltage). If the self-bias voltage VSB can be boosted, the self-bias buffer circuit 10 can operate symmetrically with respect to the boosting start voltage BSV (VDD/2).
+
+1, 2, 3, and 5, first, when a reference voltage VREF of VDD/2-X is applied as an input of the reference unit 110, as the value of X increases, FIG. 3 As described above, the reference voltage VREF decreases and the self-bias voltage VSB increases. The self-bias voltage VSB is used as a voltage for driving the power supply unit 150 and the ground unit 170. As the self-bias voltage VSB increases, the ground unit 170 maintains operation, but the power supply unit 150 is Stop the operation.
+
+Next, when the reference voltage VREF of VDD/2+X is applied as an input of the reference unit 110, the reference voltage VREF increases as the value of X increases. When the self-bias buffer circuit 10 according to the present invention is used, the self-bias voltage VSB increases even when the reference voltage VREF is VDD/2 or more. Accordingly, as the self-bias voltage VSB increases, the ground unit 170 maintains the operation, but the power supply unit 150 stops the operation.
+
+As a result, when the self-bias buffer circuit 10 is implemented so that the reference voltage operates symmetrically with respect to the boost start voltage (BSV) (VDD/2), the memory controller of the memory device uses VDD/2 as the reference voltage VREF. Choose When the memory controller selects VDD/2 as the reference voltage (VREF), the width of the data fetch window is widest. When the width of the data fetch window is wide, the margin of setup time and hold time is increased when data is latched, thereby increasing the operating speed of the memory device.
+
+In an exemplary embodiment, the bias adjusting unit 300 is coupled between the node of the power supply voltage VDD and the boosting NMOS transistor 310, and is biased in response to an inversion signal of the power supply enable signal EN_VDD. A step-up enable PMOS transistor 350 for stopping the operation of the controller 300 may be further included.
+
+In the bias control unit 300, a boost enable PMOS transistor 350 is connected between the node of the power supply voltage VDD and the boost NMOS transistor 310 so that the self-bias buffer circuit 10 You can stop the operation.
+
+When the boost enable PMOS transistor 350 is used, the boost enable PMOS transistor 350 responds to the inverting signal of the power supply enable signal EN_VDD. You can stop the operation.
+
+In an exemplary embodiment, when the reference voltage VREF is equal to or higher than the boost start voltage BSV (VDD/2), the boost NMOS transistor 310 is turned on as the reference voltage VREF increases. As a result, the self-bias voltage VSB can be gradually boosted.
+
+When the reference voltage VREF exceeds the boost start voltage VDD/2, the boost NMOS transistor 310 may be gradually turned on. When the boosting NMOS transistor 310 is gradually turned on, the power supply voltage VDD connected to the drain of the boosting NMOS transistor 310 is applied to the source of the boosting NMOS transistor 310. The self-bias voltage (VSB) can be boosted by transferring to.
+
+In an exemplary embodiment, the bias adjustment unit 300 includes a reference voltage when the reference voltage VREF is equal to or greater than the boost start voltage BSV (VDD/2) based on the boost start voltage BSV (VDD/2). The self-bias voltage VSB may be boosted so that the self-bias voltage VSB is symmetrically formed when (VREF) is less than or equal to the boost start voltage BSV (VDD/2).
+
+The self-bias voltage (VSB) is symmetrically when the reference voltage (VREF) is higher than the boost start voltage (BSV) (VDD/2) and when the reference voltage (VREF) is less than the boost start voltage (BSV) (VDD/2) When the self-bias voltage VSB is boosted to be formed, the self-bias buffer circuit 10 may symmetrically operate the reference voltage VREF based on the boost start voltage BSV (VDD/2).
+
+When the reference voltage VREF of VDD/2-X is applied to the input of the reference unit 110, the reference voltage VREF decreases and the self-bias voltage VSB increases as the value of X increases. The self-bias voltage VSB is used as a voltage for driving the power supply unit 150 and the ground unit 170. As the self-bias voltage VSB increases, the ground unit 170 maintains operation, but the power supply unit 150 is Stop the operation.
+
+When the reference voltage VREF of VDD/2+X is applied as an input of the reference unit 110, the reference voltage VREF increases as the value of X increases. When the self-bias buffer circuit 10 according to the present invention is used, the self-bias voltage VSB increases even when the reference voltage VREF is VDD/2 or more. Accordingly, as the self-bias voltage VSB increases, the ground unit 170 maintains the operation, but the power supply unit 150 stops the operation.
+
+When the self-bias buffer circuit 10 is implemented to operate symmetrically based on the boost start voltage BSV (VDD/2), the memory controller of the memory device selects VDD/2 as the reference voltage VREF. Therefore, when the memory controller selects VDD/2 as the reference voltage VREF, the width of the data fetch window is widened, thereby increasing the operating speed of the memory device.
+
+6 is a circuit diagram illustrating another example of a bias adjusting unit included in the self-bias buffer circuit of FIG. 1.
+
+6, the bias adjustment unit 300 is coupled between the node of the power voltage VDD and the node NSB of the self-bias voltage, is turned on in response to the input signal IN, and thus the self-bias voltage ( An input NMOS transistor 330 for boosting VSB) may be further included.
+
+The input NMOS transistor 330 is a differential pair with the boost NMOS transistor 310 and may be connected between the node of the power supply voltage VDD and the node NSB of the self-bias voltage. The input NMOS transistor 330 is connected between the power supply voltage VDD and the self-bias voltage node NSB to increase the power supply voltage VDD when the input NMOS transistor 330 is turned on. The self-bias voltage VSB may be boosted by transferring it to the self-bias voltage node NSB.
+
+The input NMOS transistor 330 may be driven by an input signal IN applied to a gate. When the level of the input signal IN increases and becomes higher than the threshold voltage of the input NMOS transistor 330, the input NMOS transistor 330 is turned on to boost the self-bias voltage VSB. can do.
+
+In an exemplary embodiment, the bias adjustment unit 300 is coupled between the node of the power supply voltage VDD and the input NMOS transistor 330, and is biased in response to an inversion signal of the power supply enable signal EN_VDD. An input enable PMOS transistor 370 for stopping the operation of the controller 300 may be further included.
+
+When the input enable PMOS transistor 370 is used, the input enable PMOS transistor 370 responds to an inverted signal of the power supply enable signal EN_VDD. You can stop the operation.
+
+7 is a block diagram illustrating a buffer unit included in the self-bias buffer circuit of FIG. 1.
+
+Referring to FIG. 7, the buffer unit 100 may include differential units 110 and 130 and bias units 150 and 170.
+
+The differential units 110 and 130 generate a self-bias voltage VSB and an output signal OUT based on the reference voltage VREF and the input signal IN. The differential units 110 and 130 may amplify a voltage difference between the input signal IN and the reference voltage VREF to generate an output signal OUT.
+
+The self-bias voltage VSB may be generated by itself in the differential units 110 and 130 by receiving the reference voltage VREF.
+
+The differential units 110 and 130 may be configured similar to the structure of a differential amplifier. The structure of the differential amplifier can be implemented not only using CMOS transistors, but also in various other ways.
+
+The bias units 150 and 170 drive the differential units 110 and 130 based on the self-bias voltage VSB. When the bias units 150 and 170 are driven by the self-bias voltage VSB, the power voltage VDD or the ground voltage VSS may be transmitted to the differential units 110 and 130.
+
+In an exemplary embodiment, the differential units 110 and 130 include a reference unit 110 and an input/output unit 130, and a self-bias voltage VSB through the self-bias voltage node NSB of the reference unit 110 ) Can be provided.
+
+The differential units 110 and 130 may include a reference unit 110 and an input/output unit 130. The reference unit 110 may receive the reference voltage VREF and provide the self-bias voltage VSB. The input/output unit 130 receives the input signal IN and amplifies a voltage difference between the input signal IN and the reference voltage VREF to generate an output signal OUT of a CMOS level.
+
+In an exemplary embodiment, the reference unit 110 includes a reference unit CMOS transistor 110 connected between the first node N1 and the second node N2, and the reference unit CMOS ( CMOS) a reference voltage VREF is applied to the gates of the transistor 110 to output a self-bias voltage VSB through the self-bias voltage node NSB, which is an output node of the reference unit 110, and the input/output unit ( 130 includes an input/output part CMOS transistor 131 connected between the first node N1 and the second node N2, and the gates of the input/output part CMOS transistor 131 An input signal IN may be applied to provide an output signal OUT through an output node of the input/output unit 130.
+
+In an exemplary embodiment, the bias units 150 and 170 may include a power supply unit 150 and a ground unit 170.
+
+When the power supply unit 150 is driven by the self-bias voltage VSB, the power supply unit 150 may transmit the power voltage VDD to the input/output unit 130 to generate a logic high output signal OUT. When the ground unit 170 is driven by the self-bias voltage VSB, the ground unit 170 may transmit the ground voltage VSS to the input/output unit 130 to generate an output signal OUT of a logic low.
+
+8 is a circuit diagram illustrating an example of a power supply unit included in the buffer unit of FIG. 7.
+
+7 and 8, the power supply 150 is connected between the power supply voltage VDD and the power enable node NEV, and in response to an inverted signal of the power supply enable signal EN_VDD, the power supply voltage VDD Power supply enable PMOS (PMOS) transistor 151 to stop supply, and power supply PMOS connected between the power enable node NEV and the second node N2 and driven by the self-bias voltage VSB. ) A transistor 153 may be included.
+
+When the operation of the power supply unit 150 is stopped by adding a circuit to the power supply unit 150, the operation of the self-bias buffer circuit 10 may be stopped. A power supply enable PMOS transistor 151 may be connected between the power voltage VDD and the power enable node NEV.
+
+When the power supply enable PMOS transistor 151 receives an inversion signal of the power supply enable signal EN_VDD through a gate, the power supply enable PMOS transistor 151 is turned off. When the power supply enable PMOS transistor 151 is turned off, the conduction path from the power supply voltage VDD to the source of the power supply enable PMOS transistor 151 is cut off and the power supply voltage VDD Cannot be transmitted to the input/output unit 130.
+
+9 is a circuit diagram illustrating an example of a ground part included in the buffer part of FIG. 7.
+
+7 and 9, the ground unit 170 is connected between the ground voltage VSS and the ground enable node NEG, and in response to an inverted signal of the ground enable signal EN_VSS, the ground voltage ( VSS) is connected between the ground enable NMOS transistor 173 and the ground enable node NEG and the first node N1, which blocks the conduction path connected to the VSS, and is connected by the self-bias voltage VSB. It may include a ground NMOS transistor 171 that is driven.
+
+When the operation of the ground unit 170 is stopped by adding a circuit to the ground unit 170, the operation of the self-bias buffer circuit 10 may be stopped. A ground enable NMOS transistor 173 may be connected between the ground voltage VSS and the ground enable node NEG.
+
+When the ground enable NMOS transistor 173 receives an inversion signal of the ground enable signal EN_VSS through the gate, the ground enable NMOS transistor 173 is turned off. . When the ground enable NMOS transistor 173 is turned off, the conduction path from the ground voltage VSS to the drain of the ground enable NMOS transistor 173 is cut off and the ground voltage ( VSS) cannot be transmitted to the input/output unit 130.
+
+When any one of the power supply unit 150 and the ground unit 170 is stopped, the conduction path from the power supply unit 150 to the ground unit 170 is blocked, so that the self-bias buffer circuit 10 may stop the operation. .
+
+10 is a circuit diagram showing an embodiment of the self-bias buffer circuit of FIG. 1.
+
+Referring to FIG. 10, the self-bias buffer circuit 10 according to embodiments of the present invention uses the bias adjustment unit 300 to operate symmetrically based on a case where the reference voltage VREF is VDD/2. Is implemented. When the self-bias buffer circuit 10 is implemented to operate symmetrically based on the case where the reference voltage VREF is VDD/2, the memory controller of the memory device selects VDD/2 as the reference voltage VREF. When the memory controller selects VDD/2 as the reference voltage (VREF), the width of the data fetch window is widest. When the width of the data fetch window is wide, the margin of setup time and hold time is increased when data is latched, thereby increasing the operating speed of the memory device.
+
+11 is a graph illustrating a change in a self-bias voltage VSB according to a reference voltage in the self-bias buffer circuit of FIG. 1.
+
+Referring to FIGS. 10 and 11, FIG. 10 shows a case in which the bias adjustment unit 300 is enabled in the self-bias buffer circuit 10 of FIG. 1. When the self-bias buffer circuit 10 according to the present invention is used, the self-bias voltage VSB decreases as the reference voltage VREF input to the reference unit 110 increases. However, when the reference voltage (VREF) is higher than the boost start voltage (BSV) (VDD/2), the self-bias voltage (VSB) no longer decreases, and the self-bias voltage (VSB) increases as the reference voltage (VREF) increases. do.
+
+Referring to FIGS. 1 and 2, FIG. 2 shows a case in which the bias adjusting unit 300 is disabled in the self-bias buffer circuit 10 of FIG. 1. When the self-bias buffer circuit 20 of FIG. 2 is used, as the reference voltage VREF input to the reference unit 110 increases, the NMOS transistor of the reference CMOS transistor 110 is The PMOS transistor of the reference CMOS transistor 110 is gradually turned on, and the PMOS transistor of the reference CMOS transistor 110 is gradually turned off, and the reference CMOS transistor 110 is an output of the reference unit 110. The self-bias voltage VSB output to the self-bias voltage node NSB of is decreased.
+
+Referring to FIG. 5, when the reference voltage VREF is less than or equal to the boost start voltage BSV (VDD/2), the reference voltage VREF becomes less than or equal to the threshold voltage of the boosted NMOS transistor 310. Although (VREF) increases, the boost NMOS transistor 310 is not turned on. However, when the reference voltage VREF is higher than the boost start voltage BSV (VDD/2), the reference voltage VREF increases because the reference voltage VREF becomes higher than the threshold voltage of the boost NMOS transistor 310. Accordingly, the boosting NMOS transistor 310 is gradually turned on to boost the self-bias voltage VSB.
+
+12 is a graph showing a measurement result of the self-bias buffer circuit of FIG. 1 according to the reference voltage VREF.
+
+Referring to FIG. 2, FIG. 2 shows a case in which the bias adjustment unit 300 is disabled in the self-bias buffer circuit 10 of FIG. 1. When the self-bias buffer circuit 20 of FIG. 2 is used, the self-bias buffer circuit 20 does not operate symmetrically based on the case where the reference voltage VREF is VDD/2. Therefore, the memory controller cannot select a section with the widest data fetch window. If the memory controller does not select the voltage in the section where the width of the data fetch window is the widest as the reference voltage VREF, it causes the speed of the memory device to decrease.
+
+Referring to FIGS. 10 and 12, FIG. 10 shows a case in which the bias adjustment unit 300 is enabled in the self-bias buffer circuit 10 of FIG. 1. When the self-bias buffer circuit 10 according to the present invention is used, when the reference voltage VREF is less than or equal to the boost start voltage BSV (VDD/2), the boost NMOS is increased despite the increase in the reference voltage VREF. ) The transistor 310 is not turned on. If the boost NMOS transistor 310 is not turned on, it has the same structure as the self-bias buffer circuit 20. Accordingly, the test results of the self-bias buffer circuits 10 and 20 are the same as in the graph of FIG. 12 and the graph of FIG. 4.
+
+When the reference voltage VREF is equal to or greater than the boost start voltage BSV (VDD/2), the self-bias buffer circuit 20 decreases the self-bias voltage VSB as the reference voltage VREF increases. As a result, the self-bias buffer circuit 20 does not operate symmetrically based on the boost start voltage BSV (VDD/2). On the other hand, in the self-bias buffer circuit 10, as the reference voltage VREF increases, the boosting NMOS transistor 310 is gradually turned on to boost the self-bias voltage VSB. The reference voltage gradually increases above the boost start voltage BSV (VDD/2). As a result, the self-bias buffer circuit 10 operates symmetrically based on the boost start voltage BSV (VDD/2).
+
+In this case, the memory controller of the memory device selects VDD/2 as the reference voltage VREF. When the memory controller selects VDD/2 as the reference voltage (VREF), the width of the data fetch window is widest. When the width of the data fetch window is wide, the margin of setup time and hold time can be increased when data is latched, thereby increasing the operating speed of the memory device.
+
+13 is a block diagram illustrating a memory device according to example embodiments.
+
+Referring to FIGS. 1 and 13, the memory device 200 includes a memory core 50, a self-bias buffer circuit 240 and a control unit 210.
+
+The memory core 50 may include a row decoder 220, a column decoder 230, a memory cell array 250, and a sense amplifier unit 270.
+
+The memory core 50 stores data or outputs stored data in response to control signals CMD and ADDR.
+
+The self-bias buffer circuit 240 receives data of the memory core 50 or transmits external data to the memory core 50 in response to control signals CMD and ADDR.
+
+The controller 210 generates control signals CMD and ADDR to control the memory core 50 and the self-bias buffer circuit 240.
+
+The self-bias buffer circuit 240 includes a buffer unit 100 and a bias adjustment unit 300.
+
+The buffer unit 100 provides a self-bias voltage VSB based on the reference voltage VREF, is driven based on the self-bias voltage VSB, and compares the input signal IN and the reference voltage VREF to output It generates a signal OUT.
+
+The bias adjustment unit 300 boosts the self-bias voltage VSB based on the reference voltage VREF.
+
+The controller 210 may control the operation of the memory device 200. For example, the controller 210 may generate control signals so that the memory device 200 performs a write operation or a read operation. The controller 210 may include a command decoder for decoding a command CMD received from the memory controller 100 and a mode register for setting an operation mode of the memory device 200. For example, the command decoder decodes a write enable signal (/WE), a row address strobe signal (/RAS), a column address strobe signal (/CAS), and a chip select signal (/CS) to transmit the command (CMD). Corresponding control signals can be generated. Further, the controller 210 may further receive a clock signal CLK and a clock enable signal /CKE for driving the memory device 200 in a synchronous manner.
+
+The memory cell array 250 may include a plurality of memory cells connected to a plurality of word lines WL and a plurality of bit lines BL. The memory cell array 250 may be divided into a plurality of memory blocks, and each of the plurality of memory blocks may include a plurality of pages. For example, one page may include one row of memory cells connected to the same word line WL.
+
+The sense amplifier unit 270 may amplify the voltages of the plurality of bit lines BL in response to the high bias control signal LAPG and the low bias control signal LANG. For example, when the voltage of the plurality of bit lines BL is close to the power voltage VDD among the power voltage VDD and the ground voltage VSS, the sense amplifier unit 270 includes a plurality of bit lines BL. When the voltage of is amplified to the power voltage VDD, and the voltages of the plurality of bit lines BL are close to the ground voltage VSS among the power voltage VDD and the ground voltage VSS, the plurality of bit lines BL The voltage of) can be amplified to the ground voltage VSS.
+
+The row decoder 220 may be connected to the memory cell array 250 through a plurality of word lines WL. The row decoder 220 decodes the row address RA provided from the control unit 210 and activates a word line corresponding to the row address RA among the plurality of word lines WL, thereby providing the memory cell array 250. One of a plurality of included pages can be selected. For example, the row decoder 220 may apply a word line driving voltage to a word line corresponding to the row address RA.
+
+The column decoder 230 may be connected to the memory cell array 250 and the sense amplifier unit 270 through a plurality of bit lines BL. The column decoder 230 decodes the column address CA provided from the control unit 210 to select a bit line corresponding to the column address CA from among the plurality of bit lines BL, and is provided from the selected bit line. Data may be provided to the data input/output buffer 240 or data received from the data input/output buffer 240 may be provided to a selected bit line.
+
+The data input/output buffer 240 may transmit and receive data DQ to and from the memory controller through a data pin.
+
+The self-bias buffer circuit 10 according to embodiments of the present invention can be used as the data input/output buffer 240. The self-bias buffer circuit 10 is implemented to operate symmetrically based on the case where the reference voltage VREF is VDD/2 by using the bias adjusting unit 300. When the self-bias buffer circuit 10 is implemented so that the reference voltage VREF operates symmetrically with respect to VDD/2, the memory controller of the memory device selects VDD/2 as the reference voltage VREF. When the memory controller selects VDD/2 as the reference voltage (VREF), the width of the data fetch window is widest. When the width of the data fetch window is wide, the margin of setup time and hold time is increased when data is latched, thereby increasing the operating speed of the memory device.
+
+14 is a block diagram illustrating an information processing system including a memory device according to example embodiments.
+
+Referring to FIG. 14, a memory device 4111 may be mounted in an information processing system 4100 such as a mobile device or a desktop computer. The information processing system 4100 may include a memory system 4110 electrically connected to the system bus 4160, a modem 4120, a central processing unit 4150, a RAM 4140, and a user interface 4130. . The memory device 4111 may be an MRAM chip including an STT-MRAM cell.
+
+The memory system 4110 may include a memory device 4111 and a memory controller 4112. Data processed by the central processing unit 4150 or data input from the outside may be stored in the memory device 4111.
+
+Semiconductor memory including STT-MRAM cells, such as a memory device 4111 for storing a large amount of data required for the information processing system 4100 or a RAM 4140 for storing data requiring quick access such as system data The device can be applied. Although not shown in FIG. 14, the information processing system 4100 may further include an application chipset, a camera image processor (CIS), and an input/output device.
+
+1 and 14, a memory device 4111 according to embodiments of the present invention may include a self-bias buffer circuit 10. The self-bias buffer circuit 10 is implemented to operate symmetrically based on the case where the reference voltage VREF is VDD/2 by using the bias adjusting unit 300. When implementing the self-bias buffer circuit 10 such that the reference voltage VREF operates symmetrically with respect to VDD/2, the memory controller 4112 of the memory device 4111 sets VDD/2 as the reference voltage VREF. Choose. When the memory controller 4112 selects VDD/2 as the reference voltage VREF, the width of the data fetch window is widest. When the width of the data fetch window is widened, margins of setup time and hold time are increased when data is latched, thereby increasing the operation speed of the memory device 4111.
+
+The self-bias buffer circuit and a memory device including the same according to embodiments of the present invention may be applied to various digital systems in which a memory device is used in order to improve the operating speed of the system.
+
+In the above, the present invention has been described with reference to preferred embodiments, but those skilled in the art will be able to variously modify and change the present invention within the scope not departing from the spirit and scope of the present invention described in the following claims. You will understand that you can.

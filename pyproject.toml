@@ -1,0 +1,26 @@
+[project]
+name = "qwen2-vllm-repro"
+version = "0.1.0"
+description = "Add your description here"
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.10"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = ["ruff>=0.5.6", "mypy>=1.11.1", "setuptools>=72.1.0"]
+
+[tool.rye.workspace]
+members = ["demos/*"]
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+extend-exclude = ["*.pyi", ".virtual_documents/**/*"]
+line-length = 119
+indent-width = 4
+target-version = "py310"
+builtins = ["typing_extensions"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B", "SIM", "I"]
